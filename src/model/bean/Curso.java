@@ -9,9 +9,8 @@ package model.bean;
  *
  * @author paulo
  */
-
 public class Curso {
-    
+
     private int cod;
     private String nome;
     private String descricao;
@@ -48,7 +47,5 @@ public class Curso {
     public void setCargahoraria(int cargahoraria) {
         this.cargahoraria = cargahoraria;
     }
-    
-    
-    
+
 }

@@ -5,33 +5,30 @@
  */
 package model.bean;
 
-import java.sql.Date;
-
 /**
  *
  * @author paulo
  */
-
 public abstract class Pessoa {
-    
-    protected int cpf;
+
+    protected Integer cpf;
     protected String nome;
-    protected String sexo;
     protected String email;
-    protected Date dataNascimento;
-    protected int telDdd;
-    protected int telNumero;
+    protected String dataNascimento;
     protected String endRua;
-    protected String endNumero;
+    protected Integer endNumero;
     protected String endBairro;
     protected String endCidade;
     protected String endEstado;
+    protected int telDdd;
+    protected String telNumero;
+    protected String sexo;
 
-    public int getCpf() {
+    public Integer getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(Integer cpf) {
         this.cpf = cpf;
     }
 
@@ -46,8 +43,6 @@ public abstract class Pessoa {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
-    
-    
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -60,12 +55,12 @@ public abstract class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-        public Date getDataNascimento() {
+
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -77,11 +72,11 @@ public abstract class Pessoa {
         this.telDdd = telDdd;
     }
 
-    public int getTelNumero() {
+    public String getTelNumero() {
         return telNumero;
     }
 
-    public void setTelNumero(int telNumero) {
+    public void setTelNumero(String telNumero) {
         this.telNumero = telNumero;
     }
 
@@ -93,11 +88,11 @@ public abstract class Pessoa {
         this.endRua = endRua;
     }
 
-    public String getEndNumero() {
+    public Integer getEndNumero() {
         return endNumero;
     }
 
-    public void setEndNumero(String endNumero) {
+    public void setEndNumero(Integer endNumero) {
         this.endNumero = endNumero;
     }
 
@@ -124,7 +119,5 @@ public abstract class Pessoa {
     public void setEndEstado(String endEstado) {
         this.endEstado = endEstado;
     }
-    
-    
-    
+
 }

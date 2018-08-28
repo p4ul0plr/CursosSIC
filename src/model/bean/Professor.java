@@ -9,9 +9,8 @@ package model.bean;
  *
  * @author paulo
  */
-
 public class Professor extends Pessoa {
-    
+
     private String formacao;
     private String instituicao;
 

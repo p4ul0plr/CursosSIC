@@ -13,7 +13,7 @@ import java.sql.Time;
  * @author paulo
  */
 public class Turma {
-    
+
     private int cod;
     private Time horaio;
     private Date dataInicial;
@@ -59,7 +59,5 @@ public class Turma {
     public void setQuantidadevagas(int quantidadevagas) {
         this.quantidadevagas = quantidadevagas;
     }
-    
-    
-    
+
 }
