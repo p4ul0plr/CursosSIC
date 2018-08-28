@@ -9,6 +9,7 @@ package model.bean;
  *
  * @author paulo
  */
+
 public class Curso {
     
     private int cod;
