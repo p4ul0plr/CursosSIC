@@ -11,7 +11,7 @@ package model.bean;
  */
 public abstract class Pessoa {
 
-    protected Integer cpf;
+    protected String cpf;
     protected String nome;
     protected String email;
     protected String dataNascimento;
@@ -24,11 +24,11 @@ public abstract class Pessoa {
     protected String telNumero;
     protected String sexo;
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -120,4 +120,9 @@ public abstract class Pessoa {
         this.endEstado = endEstado;
     }
 
+    @Override
+    public String toString() {
+        return "Pessoa{" + "cpf=" + cpf + ", nome=" + nome + ", email=" + email + ", dataNascimento=" + dataNascimento + ", endRua=" + endRua + ", endNumero=" + endNumero + ", endBairro=" + endBairro + ", endCidade=" + endCidade + ", endEstado=" + endEstado + ", telDdd=" + telDdd + ", telNumero=" + telNumero + ", sexo=" + sexo + '}';
+    }
+    
 }

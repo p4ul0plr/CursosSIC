@@ -11,7 +11,7 @@ package model.bean;
  */
 public class Aluno extends Pessoa {
 
-    public Aluno(Integer cpf, String nome, String email, String dataNascimento, String endRua, Integer endNumero, String endBairro, String endCidade, String endEstado, int telDdd, String telNumero, String sexo) {
+    public Aluno(String cpf, String nome, String email, String dataNascimento, String endRua, Integer endNumero, String endBairro, String endCidade, String endEstado, int telDdd, String telNumero, String sexo) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
@@ -25,5 +25,7 @@ public class Aluno extends Pessoa {
         this.telNumero = telNumero;
         this.sexo = sexo;
     }
+    
+    
 
 }
