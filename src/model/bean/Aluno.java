@@ -11,7 +11,11 @@ package model.bean;
  */
 public class Aluno extends Pessoa {
 
-    public Aluno(String cpf, String nome, String email, String dataNascimento, String endRua, Integer endNumero, String endBairro, String endCidade, String endEstado, int telDdd, String telNumero, String sexo) {
+    public Aluno() {
+        
+    }
+    
+    public Aluno(String cpf, String nome, String email, String dataNascimento, String endRua, Integer endNumero, String endBairro, String endCidade, String endEstado, int telDdd, String telNumero, String sexo, String cep) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
@@ -24,6 +28,7 @@ public class Aluno extends Pessoa {
         this.telDdd = telDdd;
         this.telNumero = telNumero;
         this.sexo = sexo;
+        this.endCep = cep;
     }
     
     

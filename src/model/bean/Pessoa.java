@@ -20,6 +20,7 @@ public abstract class Pessoa {
     protected String endBairro;
     protected String endCidade;
     protected String endEstado;
+    protected String endCep;
     protected int telDdd;
     protected String telNumero;
     protected String sexo;
@@ -120,6 +121,16 @@ public abstract class Pessoa {
         this.endEstado = endEstado;
     }
 
+    public String getEndCep() {
+        return endCep;
+    }
+
+    public void setEndCep(String endCep) {
+        this.endCep = endCep;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Pessoa{" + "cpf=" + cpf + ", nome=" + nome + ", email=" + email + ", dataNascimento=" + dataNascimento + ", endRua=" + endRua + ", endNumero=" + endNumero + ", endBairro=" + endBairro + ", endCidade=" + endCidade + ", endEstado=" + endEstado + ", telDdd=" + telDdd + ", telNumero=" + telNumero + ", sexo=" + sexo + '}';

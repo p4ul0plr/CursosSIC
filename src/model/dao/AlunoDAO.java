@@ -8,7 +8,10 @@ package model.dao;
 import connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.bean.Aluno;
 
 /**
@@ -31,8 +34,9 @@ public class AlunoDAO {
                     + "end_estado, "
                     + "ddd, "
                     + "numero, "
-                    + "sexo) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            
+                    + "sexo, "
+                    + "end_cep) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
             stmt.setString(1, aluno.getCpf());
             stmt.setString(2, aluno.getNome());
             stmt.setString(3, aluno.getEmail());
@@ -45,6 +49,7 @@ public class AlunoDAO {
             stmt.setInt(10, aluno.getTelDdd());
             stmt.setString(11, aluno.getTelNumero());
             stmt.setString(12, aluno.getSexo());
+            stmt.setString(13, aluno.getEndCep());
 
             stmt.executeUpdate();
 
@@ -53,6 +58,41 @@ public class AlunoDAO {
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
+    }
+
+    public List<Aluno> read() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Aluno> listaAluno = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM T_Aluno");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Aluno aluno = new Aluno(
+                        rs.getString("pk_cpf_aluno"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        rs.getString("data_nascimento"),
+                        rs.getString("end_rua"),
+                        rs.getInt("end_numero"),
+                        rs.getString("end_bairro"),
+                        rs.getString("end_cidade"),
+                        rs.getString("end_estado"),
+                        rs.getInt("ddd"),
+                        rs.getString("numero"),
+                        rs.getString("sexo"),
+                        rs.getString("end_cep")
+                );
+                listaAluno.add(aluno);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao ler no Banco de Dados: ", ex);
+        }
+
+        return listaAluno;
     }
 
 }
