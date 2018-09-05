@@ -38,7 +38,7 @@ public class AlunoDAO {
                     + "ddd, "
                     + "numero, "
                     + "sexo, "
-                    + "end_cep) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    + "end_cep) VALUES(?, UPPER(?), UPPER(?), ?, UPPER(?), ?, UPPER(?), UPPER(?), ?, ?, ?, ?, ?)");
 
             stmt.setString(1, aluno.getCpf());
             stmt.setString(2, aluno.getNome());
@@ -105,13 +105,13 @@ public class AlunoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE T_Aluno SET nome = ?, "
-                    + "email = ?, "
+            stmt = con.prepareStatement("UPDATE T_Aluno SET nome = UPPER(?), "
+                    + "email = UPPER(?), "
                     + "data_nascimento = ?, "
-                    + "end_rua = ?, "
+                    + "end_rua = UPPER(?), "
                     + "end_numero = ?, "
-                    + "end_bairro = ?, "
-                    + "end_cidade = ?, "
+                    + "end_bairro = UPPER(?), "
+                    + "end_cidade = UPPER(?), "
                     + "end_estado = ?, "
                     + "ddd = ?, "
                     + "numero = ?, "
@@ -138,6 +138,25 @@ public class AlunoDAO {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizado cadastro!");
             throw new RuntimeException("Erro ao inserir no Banco de Dados: ", ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    public void delete(Aluno aluno) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("DELETE FROM T_Aluno WHERE pk_cpf_aluno = ?");
+
+            stmt.setString(1, aluno.getCpf());
+
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cadastro excluido com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir cadastro!");
+            throw new RuntimeException("Erro ao excluir cadastro no Banco de Dados: ", ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }

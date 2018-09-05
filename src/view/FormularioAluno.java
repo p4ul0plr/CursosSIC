@@ -67,6 +67,7 @@ public class FormularioAluno extends javax.swing.JDialog {
         btnSalvar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Formulário de Inscrição");
@@ -324,12 +325,21 @@ public class FormularioAluno extends javax.swing.JDialog {
             }
         });
 
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -346,8 +356,9 @@ public class FormularioAluno extends javax.swing.JDialog {
                     .addComponent(btnSalvar)
                     .addComponent(btnCancelar)
                     .addComponent(btnPesquisar)
-                    .addComponent(btnAtualizar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAtualizar)
+                    .addComponent(btnExcluir))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -426,6 +437,14 @@ public class FormularioAluno extends javax.swing.JDialog {
         alunoDAO.update(aluno);
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        Aluno aluno = new Aluno();
+        aluno.setCpf(txtCpf.getText());
+        AlunoDAO alunoDAO = new AlunoDAO();
+        alunoDAO.delete(aluno);
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
     /**
      * @param args
      */
@@ -470,6 +489,7 @@ public class FormularioAluno extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbEstado;
