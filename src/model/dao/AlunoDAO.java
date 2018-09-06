@@ -38,7 +38,7 @@ public class AlunoDAO {
                     + "ddd, "
                     + "numero, "
                     + "sexo, "
-                    + "end_cep) VALUES(?, UPPER(?), UPPER(?), ?, UPPER(?), ?, UPPER(?), UPPER(?), ?, ?, ?, ?, ?)");
+                    + "end_cep) VALUES(?, UPPER(?), UPPER(?), CONVERT(?, DATE), UPPER(?), ?, UPPER(?), UPPER(?), ?, ?, ?, ?, ?)");
 
             stmt.setString(1, aluno.getCpf());
             stmt.setString(2, aluno.getNome());
