@@ -31,6 +31,4 @@ public class Aluno extends Pessoa {
         this.endCep = cep;
     }
     
-    
-
 }

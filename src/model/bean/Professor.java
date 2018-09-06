@@ -14,6 +14,28 @@ public class Professor extends Pessoa {
     private String formacao;
     private String instituicao;
 
+    public Professor() {
+        
+    }
+    
+    public Professor(String cpf, String nome, String formacao, String instituicao, String email, String endRua, Integer endNumero, String endBairro, String endCidade, String endEstado, int telDdd, String telNumero, String dataNascimento, String sexo, String cep) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.formacao = formacao;
+        this.instituicao = instituicao;
+        this.email = email;
+        this.endRua = endRua;
+        this.endNumero = endNumero;
+        this.endBairro = endBairro;
+        this.endCidade = endCidade;
+        this.endEstado = endEstado;
+        this.telDdd = telDdd;
+        this.telNumero = telNumero;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.endCep = cep;
+    }
+
     public String getFormacao() {
         return formacao;
     }
