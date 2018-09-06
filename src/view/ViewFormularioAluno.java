@@ -411,11 +411,14 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
+        AlunoDAO alunoDAO = new AlunoDAO();
+        alunoDAO.read().forEach((aluno) -> {
+            System.out.println("Nome do Aluno: " + aluno.getNome());
+        });
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed

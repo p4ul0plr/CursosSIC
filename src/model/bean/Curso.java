@@ -21,7 +21,18 @@ public class Curso {
         this.descricao = descricao;
         this.cargahoraria = cargahoraria;
     }
-    
+
+    public Curso(int cod, String nome, String descricao, int cargahoraria) {
+        this.cod = cod;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.cargahoraria = cargahoraria;
+    }
+
+    public Curso() {
+        
+    }
+
     public int getCod() {
         return cod;
     }
