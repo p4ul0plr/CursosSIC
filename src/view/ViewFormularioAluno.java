@@ -12,7 +12,7 @@ import model.dao.AlunoDAO;
  *
  * @author paulo
  */
-public class FormularioAluno extends javax.swing.JDialog {
+public class ViewFormularioAluno extends javax.swing.JDialog {
 
     /**
      * Creates new form NewJDialog
@@ -20,7 +20,7 @@ public class FormularioAluno extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
-    public FormularioAluno(java.awt.Frame parent, boolean modal) {
+    public ViewFormularioAluno(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -382,6 +382,8 @@ public class FormularioAluno extends javax.swing.JDialog {
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleName("Formulário de Inscrição de Alunos");
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -462,20 +464,22 @@ public class FormularioAluno extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(() -> {
-            FormularioAluno dialog = new FormularioAluno(new javax.swing.JFrame(), true);
+            ViewFormularioAluno dialog = new ViewFormularioAluno(new javax.swing.JFrame(), true);
             dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(java.awt.event.WindowEvent e) {

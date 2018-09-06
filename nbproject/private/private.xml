@@ -6,9 +6,11 @@
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/bean/Curso.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/bean/Turma.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/connection/ConnectionFactory.java</file>
+            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioAluno.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/dao/AlunoDAO.java</file>
+            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/dao/CursoDAO.java</file>
+            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioCurso.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/bean/Professor.java</file>
-            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/FormularioAluno.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/bean/Pessoa.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/bean/Aluno.java</file>
         </group>

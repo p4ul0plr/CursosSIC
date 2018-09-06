@@ -55,9 +55,9 @@ public class AlunoDAO {
             stmt.setString(13, aluno.getEndCep());
 
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Cadastro criado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao criar cadastro!");
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar Aluno!");
             throw new RuntimeException("Erro ao inserir no Banco de Dados: ", ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
