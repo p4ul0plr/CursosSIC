@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.Dimension;
 import model.bean.Aluno;
 import model.dao.AlunoDAO;
 
@@ -12,16 +13,12 @@ import model.dao.AlunoDAO;
  *
  * @author paulo
  */
-public class ViewFormularioAluno extends javax.swing.JDialog {
+public class ViewFormularioAluno extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form NewJDialog
-     *
-     * @param parent
-     * @param modal
+     * Creates new form teste
      */
-    public ViewFormularioAluno(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public ViewFormularioAluno() {
         initComponents();
     }
 
@@ -69,7 +66,7 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
         btnAtualizar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
         setTitle("Formulário de Inscrição de Alunos");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados pessoais"));
@@ -112,8 +109,8 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
                         .addGap(72, 72, 72)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
+                        .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
@@ -185,7 +182,7 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
                         .addComponent(txtDdd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 393, Short.MAX_VALUE))
+                        .addGap(0, 396, Short.MAX_VALUE))
                     .addComponent(txtEmail))
                 .addContainerGap())
         );
@@ -385,8 +382,33 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setPosition() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+
+    private void clearFields() {
+        txtBairro.setText("");
+        txtCep.setText("");
+        txtCidade.setText("");
+        txtCpf.setText("");
+        txtDataNasc.setText("");
+        txtDdd.setText("");
+        txtEmail.setText("");
+        txtNome.setText("");
+        txtNumero.setText("");
+        txtRua.setText("");
+        txtTelefone.setText("");
+
+    }
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        clearFields();
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
@@ -407,11 +429,8 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
         );
         AlunoDAO alunoDAO = new AlunoDAO();
         alunoDAO.create(aluno);
+        clearFields();
     }//GEN-LAST:event_btnSalvarActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
@@ -450,48 +469,6 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
         alunoDAO.delete(aluno);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    /**
-     * @param args
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewFormularioAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(() -> {
-            ViewFormularioAluno dialog = new ViewFormularioAluno(new javax.swing.JFrame(), true);
-            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                @Override
-                public void windowClosing(java.awt.event.WindowEvent e) {
-                    System.exit(0);
-                }
-            });
-            dialog.setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
