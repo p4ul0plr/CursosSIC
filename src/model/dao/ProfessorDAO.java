@@ -122,7 +122,7 @@ public class ProfessorDAO {
                     + "end_estado = ?, "
                     + "ddd = ?, "
                     + "numero = ?, "
-                    + "data_nascimento = ?, "
+                    + "data_nascimento = CONVERT(?, DATE), "
                     + "sexo = ?, "
                     + "end_cep = ? "
                     + "WHERE pk_cpf_prof = ?");

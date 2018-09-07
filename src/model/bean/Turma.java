@@ -5,9 +5,6 @@
  */
 package model.bean;
 
-import java.sql.Date;
-import java.sql.Time;
-
 /**
  *
  * @author paulo
@@ -15,11 +12,33 @@ import java.sql.Time;
 public class Turma {
 
     private int cod;
-    private Time horaio;
-    private Date dataInicial;
-    private Date dataFinal;
-    private int quantidadevagas;
+    private String nome;
+    private String horaio;
+    private String dataInicial;
+    private String dataFinal;
+    private int quantidadeVagas;
 
+    public Turma(int cod, String nome, String horaio, String dataInicial, String dataFinal, int quantidadevagas) {
+        this.cod = cod;
+        this.nome = nome;
+        this.horaio = horaio;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.quantidadeVagas = quantidadevagas;
+    }
+
+    public Turma(String nome, String horaio, String dataInicial, String dataFinal, int quantidadeVagas) {
+        this.nome = nome;
+        this.horaio = horaio;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.quantidadeVagas = quantidadeVagas;
+    }
+
+    public Turma() {
+
+    }
+    
     public int getCod() {
         return cod;
     }
@@ -28,36 +47,44 @@ public class Turma {
         this.cod = cod;
     }
 
-    public Time getHoraio() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getHoraio() {
         return horaio;
     }
 
-    public void setHoraio(Time horaio) {
+    public void setHoraio(String horaio) {
         this.horaio = horaio;
     }
 
-    public Date getDataInicial() {
+    public String getDataInicial() {
         return dataInicial;
     }
 
-    public void setDataInicial(Date dataInicial) {
+    public void setDataInicial(String dataInicial) {
         this.dataInicial = dataInicial;
     }
 
-    public Date getDataFinal() {
+    public String getDataFinal() {
         return dataFinal;
     }
 
-    public void setDataFinal(Date dataFinal) {
+    public void setDataFinal(String dataFinal) {
         this.dataFinal = dataFinal;
     }
 
-    public int getQuantidadevagas() {
-        return quantidadevagas;
+    public int getQuantidadeVagas() {
+        return quantidadeVagas;
     }
 
-    public void setQuantidadevagas(int quantidadevagas) {
-        this.quantidadevagas = quantidadevagas;
+    public void setQuantidadeVagas(int quantidadevagas) {
+        this.quantidadeVagas = quantidadevagas;
     }
 
 }

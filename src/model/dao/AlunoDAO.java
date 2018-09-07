@@ -107,7 +107,7 @@ public class AlunoDAO {
         try {
             stmt = con.prepareStatement("UPDATE T_Aluno SET nome = UPPER(?), "
                     + "email = UPPER(?), "
-                    + "data_nascimento = ?, "
+                    + "data_nascimento = CONVERT(?, DATE), "
                     + "end_rua = UPPER(?), "
                     + "end_numero = ?, "
                     + "end_bairro = UPPER(?), "

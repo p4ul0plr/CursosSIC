@@ -83,7 +83,7 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
         jLabel11.setText("Sexo:");
 
         try {
-            txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
+            txtDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -383,8 +383,6 @@ public class ViewFormularioAluno extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
         );
-
-        getAccessibleContext().setAccessibleName("Formulário de Inscrição de Alunos");
 
         pack();
         setLocationRelativeTo(null);
