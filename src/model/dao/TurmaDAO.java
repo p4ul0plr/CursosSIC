@@ -26,7 +26,11 @@ public class TurmaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO T_Turma (nome, horario, data_inicial, data_final, quantidade_vagas) "
+            stmt = con.prepareStatement("INSERT INTO T_Turma (nome, "
+                    + "horario, "
+                    + "data_inicial, "
+                    + "data_final, "
+                    + "quantidade_vagas) "
                     + "VALUES(UPPER(?), CONVERT(?, TIME), CONVERT(?, DATE), CONVERT(?, DATE), ?)");
 
             stmt.setString(1, turma.getNome());
@@ -121,5 +125,5 @@ public class TurmaDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-
+    
 }

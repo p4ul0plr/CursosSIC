@@ -87,4 +87,11 @@ public class Turma {
         this.quantidadeVagas = quantidadevagas;
     }
 
+    @Override
+    public String toString() {
+        return "" + nome;
+    }
+    
+    
+
 }

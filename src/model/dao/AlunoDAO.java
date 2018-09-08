@@ -142,7 +142,7 @@ public class AlunoDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-    
+
     public void delete(Aluno aluno) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -160,6 +160,47 @@ public class AlunoDAO {
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
+    }
+
+    public List<Aluno> readAlunosTurma(int codTurma) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Aluno> listaAluno = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM T_Aluno "
+                    + "INNER JOIN R_Aluno_Turma "
+                    + "ON T_Aluno.pk_cpf_aluno = R_Aluno_Turma.pk_fk_cpf_aluno "
+                    + "WHERE R_Aluno_Turma.pk_fk_cod_turma = ?");
+            stmt.setInt(1, codTurma);
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Aluno aluno = new Aluno(
+                        rs.getString("pk_cpf_aluno"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        rs.getString("data_nascimento"),
+                        rs.getString("end_rua"),
+                        rs.getInt("end_numero"),
+                        rs.getString("end_bairro"),
+                        rs.getString("end_cidade"),
+                        rs.getString("end_estado"),
+                        rs.getInt("ddd"),
+                        rs.getString("numero"),
+                        rs.getString("sexo"),
+                        rs.getString("end_cep")
+                );
+                listaAluno.add(aluno);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao ler cadastro!");
+            throw new RuntimeException("Erro ao ler no Banco de Dados: ", ex);
+        }
+
+        return listaAluno;
     }
 
 }

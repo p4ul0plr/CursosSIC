@@ -30,13 +30,27 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         dskTeleInicial = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuAluno = new javax.swing.JMenu();
+        jMenuAdicionarAluno = new javax.swing.JMenuItem();
+        jMenuModificarAluno = new javax.swing.JMenuItem();
+        jMenuRemoverAluno = new javax.swing.JMenuItem();
+        jMenuProfessor = new javax.swing.JMenu();
+        jMenuAdicionarProfessor = new javax.swing.JMenuItem();
+        jMenuModificarProfessor = new javax.swing.JMenuItem();
+        jMenuRemoverProfessor = new javax.swing.JMenuItem();
+        jMenuCurso = new javax.swing.JMenu();
+        jMenuAdicionarCurso = new javax.swing.JMenuItem();
+        jMenuModificarCurso = new javax.swing.JMenuItem();
+        jMenuRemoverCurso = new javax.swing.JMenuItem();
+        jMenuTurma = new javax.swing.JMenu();
+        jMenuAdicionarTurma = new javax.swing.JMenuItem();
+        jMenuModificarTurma = new javax.swing.JMenuItem();
+        jMenuRemoverTurma = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,48 +60,106 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        jMenuItem1.setText("Sair");
-        jMenu1.add(jMenuItem1);
+        jMenuSair.setText("Sair");
+        jMenuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuSair);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Cadastro");
+        jMenu2.setText("Cadastros");
 
-        jMenuItem2.setText("Alunos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuAluno.setText("Alunos");
+
+        jMenuAdicionarAluno.setText("Adicionar");
+        jMenuAdicionarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuAdicionarAlunoActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenuAluno.add(jMenuAdicionarAluno);
 
-        jMenuItem3.setText("Professores");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuModificarAluno.setText("Modificar");
+        jMenuModificarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuModificarAlunoActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenuAluno.add(jMenuModificarAluno);
 
-        jMenuItem4.setText("Cursos");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuRemoverAluno.setText("Remover");
+        jMenuAluno.add(jMenuRemoverAluno);
+
+        jMenu2.add(jMenuAluno);
+
+        jMenuProfessor.setText("Professores");
+
+        jMenuAdicionarProfessor.setText("Adicionar");
+        jMenuAdicionarProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuAdicionarProfessorActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenuProfessor.add(jMenuAdicionarProfessor);
 
-        jMenuItem5.setText("Turmas");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMenuModificarProfessor.setText("Modificar");
+        jMenuProfessor.add(jMenuModificarProfessor);
+
+        jMenuRemoverProfessor.setText("Remover");
+        jMenuProfessor.add(jMenuRemoverProfessor);
+
+        jMenu2.add(jMenuProfessor);
+
+        jMenuCurso.setText("Cursos");
+
+        jMenuAdicionarCurso.setText("Adicionar");
+        jMenuAdicionarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jMenuAdicionarCursoActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenuCurso.add(jMenuAdicionarCurso);
+
+        jMenuModificarCurso.setText("Modificar");
+        jMenuCurso.add(jMenuModificarCurso);
+
+        jMenuRemoverCurso.setText("Remover");
+        jMenuCurso.add(jMenuRemoverCurso);
+
+        jMenu2.add(jMenuCurso);
+
+        jMenuTurma.setText("Turma");
+
+        jMenuAdicionarTurma.setText("Adicionar");
+        jMenuAdicionarTurma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAdicionarTurmaActionPerformed(evt);
+            }
+        });
+        jMenuTurma.add(jMenuAdicionarTurma);
+
+        jMenuModificarTurma.setText("Modificar");
+        jMenuTurma.add(jMenuModificarTurma);
+
+        jMenuRemoverTurma.setText("Remover");
+        jMenuTurma.add(jMenuRemoverTurma);
+
+        jMenu2.add(jMenuTurma);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Clientes");
+        jMenu3.setText("Ferramentas");
+
+        jMenu5.setText("Pesquisas");
+
+        jMenuItem6.setText("Pesquisas");
+        jMenu5.add(jMenuItem6);
+
+        jMenu3.add(jMenu5);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Sobre");
@@ -110,37 +182,51 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuAdicionarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAdicionarAlunoActionPerformed
         // TODO add your handling code here:
         ViewFormularioAluno formAluno = new ViewFormularioAluno();
         dskTeleInicial.add(formAluno);
         formAluno.setVisible(true);
         formAluno.setPosition();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jMenuAdicionarAlunoActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuAdicionarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAdicionarCursoActionPerformed
         // TODO add your handling code here:
         ViewFormularioCurso formCurso = new ViewFormularioCurso();
         dskTeleInicial.add(formCurso);
         formCurso.setVisible(true);
         formCurso.setPosition();
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuAdicionarCursoActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuAdicionarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAdicionarProfessorActionPerformed
         // TODO add your handling code here:
         ViewFormularioProfessor formProfessor = new ViewFormularioProfessor();
         dskTeleInicial.add(formProfessor);
         formProfessor.setVisible(true);
         formProfessor.setPosition();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMenuAdicionarProfessorActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMenuAdicionarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAdicionarTurmaActionPerformed
         // TODO add your handling code here:
         ViewFormularioTurma formTurma = new ViewFormularioTurma();
         dskTeleInicial.add(formTurma);
         formTurma.setVisible(true);
         formTurma.setPosition();
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_jMenuAdicionarTurmaActionPerformed
+
+    private void jMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSairActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jMenuSairActionPerformed
+
+    private void jMenuModificarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarAlunoActionPerformed
+        // TODO add your handling code here:
+        ViewModificarAluno formModificaAluno = new ViewModificarAluno();
+        dskTeleInicial.add(formModificaAluno);
+        formModificaAluno.setVisible(true);
+        formModificaAluno.setPosition();
+        
+    }//GEN-LAST:event_jMenuModificarAlunoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,11 +269,25 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuItem jMenuAdicionarAluno;
+    private javax.swing.JMenuItem jMenuAdicionarCurso;
+    private javax.swing.JMenuItem jMenuAdicionarProfessor;
+    private javax.swing.JMenuItem jMenuAdicionarTurma;
+    private javax.swing.JMenu jMenuAluno;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenu jMenuCurso;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuModificarAluno;
+    private javax.swing.JMenuItem jMenuModificarCurso;
+    private javax.swing.JMenuItem jMenuModificarProfessor;
+    private javax.swing.JMenuItem jMenuModificarTurma;
+    private javax.swing.JMenu jMenuProfessor;
+    private javax.swing.JMenuItem jMenuRemoverAluno;
+    private javax.swing.JMenuItem jMenuRemoverCurso;
+    private javax.swing.JMenuItem jMenuRemoverProfessor;
+    private javax.swing.JMenuItem jMenuRemoverTurma;
+    private javax.swing.JMenuItem jMenuSair;
+    private javax.swing.JMenu jMenuTurma;
     // End of variables declaration//GEN-END:variables
 }
