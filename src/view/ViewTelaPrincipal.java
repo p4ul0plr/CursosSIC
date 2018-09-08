@@ -91,6 +91,11 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         jMenuAluno.add(jMenuModificarAluno);
 
         jMenuRemoverAluno.setText("Remover");
+        jMenuRemoverAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRemoverAlunoActionPerformed(evt);
+            }
+        });
         jMenuAluno.add(jMenuRemoverAluno);
 
         jMenu2.add(jMenuAluno);
@@ -221,12 +226,22 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuModificarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarAlunoActionPerformed
         // TODO add your handling code here:
-        ViewModificarAluno formModificaAluno = new ViewModificarAluno();
+        ViewModificarExcluirAluno formModificaAluno = new ViewModificarExcluirAluno();
         dskTeleInicial.add(formModificaAluno);
         formModificaAluno.setVisible(true);
         formModificaAluno.setPosition();
-        
+        formModificaAluno.setButons("formModificaAluno");
+
     }//GEN-LAST:event_jMenuModificarAlunoActionPerformed
+
+    private void jMenuRemoverAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRemoverAlunoActionPerformed
+        // TODO add your handling code here:
+        ViewModificarExcluirAluno formExcluirAluno = new ViewModificarExcluirAluno();
+        dskTeleInicial.add(formExcluirAluno);
+        formExcluirAluno.setVisible(true);
+        formExcluirAluno.setPosition();
+        formExcluirAluno.setButons("formExcluirAluno");
+    }//GEN-LAST:event_jMenuRemoverAlunoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,7 +279,7 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane dskTeleInicial;
+    public static javax.swing.JDesktopPane dskTeleInicial;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

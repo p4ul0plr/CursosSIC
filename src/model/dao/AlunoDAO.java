@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.bean.Aluno;
+import model.bean.Turma;
 
 /**
  *
@@ -162,7 +163,7 @@ public class AlunoDAO {
         }
     }
 
-    public List<Aluno> readAlunosTurma(int codTurma) {
+    public List<Aluno> readAlunosTurma(Turma turma) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -173,7 +174,7 @@ public class AlunoDAO {
                     + "INNER JOIN R_Aluno_Turma "
                     + "ON T_Aluno.pk_cpf_aluno = R_Aluno_Turma.pk_fk_cpf_aluno "
                     + "WHERE R_Aluno_Turma.pk_fk_cod_turma = ?");
-            stmt.setInt(1, codTurma);
+            stmt.setInt(1, turma.getCod());
             
             rs = stmt.executeQuery();
 

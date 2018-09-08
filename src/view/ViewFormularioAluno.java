@@ -20,6 +20,9 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
      */
     public ViewFormularioAluno() {
         initComponents();
+        btnAtualizar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        btnPesquisar.setEnabled(false);
     }
 
     /**
@@ -384,6 +387,22 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void fillTheForm(Aluno aluno) {
+        btnSalvar.setEnabled(false);
+        btnAtualizar.setEnabled(true);
+        txtBairro.setText(aluno.getEndBairro());
+        txtCep.setText(aluno.getEndCep());
+        txtCidade.setText(aluno.getEndCidade());
+        txtCpf.setText(aluno.getCpf());
+        txtDataNasc.setText(aluno.getDataNascimento().replaceAll("-", "/"));
+        txtDdd.setText("" + aluno.getTelDdd());
+        txtEmail.setText(aluno.getEmail());
+        txtNome.setText(aluno.getNome());
+        txtNumero.setText("" + aluno.getEndNumero());
+        txtRua.setText(aluno.getEndRua());
+        txtTelefone.setText(aluno.getTelNumero());
+    }
+
     public void setPosition() {
         Dimension d = this.getDesktopPane().getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
@@ -406,7 +425,6 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        clearFields();
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -435,8 +453,8 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
         AlunoDAO alunoDAO = new AlunoDAO();
-        alunoDAO.read().forEach((aluno) -> {
-            System.out.println("Nome do Aluno: " + aluno.getNome());
+        alunoDAO.read().stream().forEach((aluno) -> {
+            System.out.println("Nome do Aluno: " + aluno.getDataNascimento());
         });
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
@@ -459,6 +477,7 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
         );
         AlunoDAO alunoDAO = new AlunoDAO();
         alunoDAO.update(aluno);
+        dispose();
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed

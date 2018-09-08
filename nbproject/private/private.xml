@@ -7,13 +7,13 @@
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioAluno.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/dao/TurmaDAO.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/dao/AlunoDAO.java</file>
-            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioTurma.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/dao/ProfessorDAO.java</file>
+            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioTurma.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/dao/CursoDAO.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioCurso.java</file>
-            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioAlunoDialog.java</file>
-            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioProfessorDialog.java</file>
-            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioCursoDialog.java</file>
+            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewFormularioProfessor.java</file>
+            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewModificarAluno.java</file>
+            <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/model/bean/Aluno.java</file>
             <file>file:/home/paulo/NetBeansProjects/CursosSIC/src/view/ViewTelaPrincipal.java</file>
         </group>
     </open-files>
