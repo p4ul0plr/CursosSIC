@@ -47,13 +47,14 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         cmbTurmas = new javax.swing.JComboBox<>();
         btnModificar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
+        btnRemover = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAlunos = new javax.swing.JTable();
 
         setClosable(true);
+        setTitle("Modificar ou Remover Aluno(a)");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Opções"));
 
@@ -71,10 +72,10 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
             }
         });
 
-        btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        btnRemover.setText("Remover");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
+                btnRemoverActionPerformed(evt);
             }
         });
 
@@ -94,7 +95,7 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmbTurmas, javax.swing.GroupLayout.Alignment.TRAILING, 0, 157, Short.MAX_VALUE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -106,7 +107,7 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(btnCancelar)
                 .addGap(18, 18, 18)
-                .addComponent(btnExcluir)
+                .addComponent(btnRemover)
                 .addGap(18, 18, 18)
                 .addComponent(btnModificar)
                 .addContainerGap())
@@ -184,7 +185,7 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
         if (option.equals("formExcluirAluno")) {
             btnModificar.setEnabled(false);
         } else if (option.equals("formModificaAluno")) {
-            btnExcluir.setEnabled(false);
+            btnRemover.setEnabled(false);
         }
 
     }
@@ -227,15 +228,19 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tblAlunos.getModel();
-        ViewFormularioAluno formAluno = new ViewFormularioAluno();
-        formAluno.fillTheForm(listAluno.get(tblAlunos.getSelectedRow()));
-        ViewTelaPrincipal.dskTeleInicial.add(formAluno);
-        formAluno.setVisible(true);
-        formAluno.setPosition();
+        if (tblAlunos.getSelectedRow() != -1) {
+            DefaultTableModel model = (DefaultTableModel) tblAlunos.getModel();
+            ViewFormularioAluno formAluno = new ViewFormularioAluno();
+            formAluno.fillTheForm(listAluno.get(tblAlunos.getSelectedRow()));
+            ViewTelaPrincipal.dskTeleInicial.add(formAluno);
+            formAluno.setVisible(true);
+            formAluno.setPosition();
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um Aluno para modificar!");
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         // TODO add your handling code here:
         if (tblAlunos.getSelectedRow() != -1) {
             DefaultTableModel model = (DefaultTableModel) tblAlunos.getModel();
@@ -244,9 +249,10 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
             TurmaDAO turmaDAO = new TurmaDAO();
             Aluno aluno = new Aluno();
             aluno = listAluno.get(row);
-            aluno.setTurmasMatriculadas(turmaDAO.readTurmasAluno(aluno));
-            System.out.println("" + aluno.getTurmasMatriculadas().get(0).getNome());
-            if (aluno.getTurmasMatriculadas().isEmpty()) {
+            //System.out.println("Nome: " + aluno.getNome());
+            //aluno.setTurmasMatriculadas(turmaDAO.readTurmasAluno(aluno));
+            //System.out.println("Nome da Turma: " + aluno.getTurmasMatriculadas().get(0).getNome());
+            if (turmaDAO.readTurmasAluno(aluno) == null) {
                 alunoDAO.delete(aluno);
                 model.removeRow(row);
             } else {
@@ -263,7 +269,7 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um Aluno para excluir!");
         }
-    }//GEN-LAST:event_btnExcluirActionPerformed
+    }//GEN-LAST:event_btnRemoverActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
@@ -313,8 +319,8 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnRemover;
     private javax.swing.JComboBox<Object> cmbTurmas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

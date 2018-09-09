@@ -132,7 +132,7 @@ public class TurmaDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Turma> listaTurma = new ArrayList<>();
-
+        
         try {
             stmt = con.prepareStatement("SELECT * FROM T_Turma "
                     + "INNER JOIN R_Aluno_Turma "

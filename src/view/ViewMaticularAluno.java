@@ -6,8 +6,10 @@
 package view;
 
 import java.awt.Dimension;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.bean.Aluno;
 import model.bean.Turma;
@@ -44,8 +46,8 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTurmas = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         cmbTurmas = new javax.swing.JComboBox<>();
+        btnRemoverTurma = new javax.swing.JButton();
         btnAdicionarTurma = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -78,8 +80,10 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
         txtSexo = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btnConfirmarMatricula = new javax.swing.JButton();
+        btnCancelarMatricula = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("Efetuar Matrícula do Aluno(a)");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtros de Pesquisa"));
 
@@ -141,7 +145,12 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblTurmas);
 
-        jLabel1.setText("Nome do Professor:");
+        btnRemoverTurma.setText("Remover Turma");
+        btnRemoverTurma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverTurmaActionPerformed(evt);
+            }
+        });
 
         btnAdicionarTurma.setText("Adicionar Turma");
         btnAdicionarTurma.addActionListener(new java.awt.event.ActionListener() {
@@ -158,15 +167,13 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(cmbTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(btnAdicionarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(cmbTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, Short.MAX_VALUE)
+                        .addComponent(btnRemoverTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAdicionarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -174,17 +181,13 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAdicionarTurma)
-                            .addComponent(cmbTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRemoverTurma)
+                    .addComponent(cmbTurmas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(btnAdicionarTurma)
+                .addContainerGap())
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -396,7 +399,7 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
                         .addGap(76, 76, 76)
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                        .addComponent(txtCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
                     .addComponent(txtNome))
                 .addContainerGap())
         );
@@ -436,7 +439,7 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
@@ -458,20 +461,31 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        btnCancelarMatricula.setText("Cancelar");
+        btnCancelarMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarMatriculaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancelarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnConfirmarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(btnConfirmarMatricula)
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirmarMatricula)
+                    .addComponent(btnCancelarMatricula))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -501,7 +515,7 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -523,23 +537,28 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        Aluno aluno = new Aluno();
-        aluno.setCpf(txtCpfPesquisa.getText());
-        AlunoDAO alunoDAO = new AlunoDAO();
-        aluno = alunoDAO.readAluno(aluno).get(0);
-        txtBairro.setText(aluno.getEndBairro());
-        txtCep.setText(aluno.getEndCep());
-        txtCidade.setText(aluno.getEndCidade());
-        txtCpf.setText(aluno.getCpf());
-        txtDataNasc.setText(aluno.getDataNascimento().replaceAll("-", "/"));
-        txtDdd.setText("" + aluno.getTelDdd());
-        txtEmail.setText(aluno.getEmail());
-        txtNome.setText(aluno.getNome());
-        txtNumero.setText("" + aluno.getEndNumero());
-        txtRua.setText(aluno.getEndRua());
-        txtTelefone.setText(aluno.getTelNumero());
-        txtSexo.setText(aluno.getSexo());
-        txtEstado.setText(aluno.getEndEstado());
+        try {
+            Aluno aluno = new Aluno();
+            aluno.setCpf(txtCpfPesquisa.getText());
+            AlunoDAO alunoDAO = new AlunoDAO();
+            aluno = alunoDAO.readAluno(aluno).get(0);
+            txtBairro.setText(aluno.getEndBairro());
+            txtCep.setText(aluno.getEndCep());
+            txtCidade.setText(aluno.getEndCidade());
+            txtCpf.setText(aluno.getCpf());
+            txtDataNasc.setText(aluno.getDataNascimento().replaceAll("-", "/"));
+            txtDdd.setText("" + aluno.getTelDdd());
+            txtEmail.setText(aluno.getEmail());
+            txtNome.setText(aluno.getNome());
+            txtNumero.setText("" + aluno.getEndNumero());
+            txtRua.setText(aluno.getEndRua());
+            txtTelefone.setText(aluno.getTelNumero());
+            txtSexo.setText(aluno.getSexo());
+            txtEstado.setText(aluno.getEndEstado());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Aluno inexistente! ");
+        }
+
         //lblNome.setText("" + aluno.getCpf());
         //System.out.println("" + alunoDAO.readAluno(aluno).getCpf());
         //lblNome.setText();
@@ -547,13 +566,33 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
 
     private void btnConfirmarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarMatriculaActionPerformed
         // TODO add your handling code here:
-        Aluno aluno = new Aluno();
-        aluno.setCpf(txtCpfPesquisa.getText());
-        AlunoDAO alunoDAO = new AlunoDAO();
-        //aluno = alunoDAO.readAluno(aluno).get(0);
-        alunoDAO.createAlunoTurma(alunoDAO.readAluno(aluno).get(0), (Turma) cmbTurmas.getSelectedItem(), "2000-09-13");
-        cmbTurmas.getSelectedItem();
+        try {
+            Aluno aluno = new Aluno();
+            aluno.setCpf(txtCpfPesquisa.getText());
+            AlunoDAO alunoDAO = new AlunoDAO();
+            //aluno = alunoDAO.readAluno(aluno).get(0);
+            alunoDAO.createAlunoTurma(alunoDAO.readAluno(aluno).get(0), (Turma) cmbTurmas.getSelectedItem(), "" + new Date(System.currentTimeMillis()));
+            cmbTurmas.getSelectedItem();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao efetuar matrícula! ");
+        }
     }//GEN-LAST:event_btnConfirmarMatriculaActionPerformed
+
+    private void btnRemoverTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverTurmaActionPerformed
+        // TODO add your handling code here:
+        try {
+            DefaultTableModel model = (DefaultTableModel) tblTurmas.getModel();
+            model.removeRow(tblTurmas.getSelectedRow());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Selecione uma turma para excluir! ");
+        }
+
+    }//GEN-LAST:event_btnRemoverTurmaActionPerformed
+
+    private void btnCancelarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarMatriculaActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnCancelarMatriculaActionPerformed
 
     private void readTurmas() {
         TurmaDAO turmaDAO = new TurmaDAO();
@@ -569,10 +608,11 @@ public class ViewMaticularAluno extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarTurma;
+    private javax.swing.JButton btnCancelarMatricula;
     private javax.swing.JButton btnConfirmarMatricula;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnRemoverTurma;
     private javax.swing.JComboBox<Object> cmbTurmas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;

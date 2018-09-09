@@ -20,9 +20,6 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
      */
     public ViewFormularioAluno() {
         initComponents();
-        btnAtualizar.setEnabled(false);
-        btnExcluir.setEnabled(false);
-        btnPesquisar.setEnabled(false);
     }
 
     /**
@@ -65,9 +62,6 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        btnPesquisar = new javax.swing.JButton();
-        btnAtualizar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Formulário de Inscrição de Alunos");
@@ -260,7 +254,7 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(37, 37, 37)
-                        .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(lblCep)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -299,38 +293,17 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Opções"));
         jPanel6.setPreferredSize(new java.awt.Dimension(730, 67));
 
-        btnCancelar.setText("Calcelar Cadastro");
+        btnCancelar.setText("Calcelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
-        btnSalvar.setText("Salvar Cadastro");
+        btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
-            }
-        });
-
-        btnPesquisar.setText("Pesquisar");
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
-
-        btnAtualizar.setText("Atualizar");
-        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizarActionPerformed(evt);
-            }
-        });
-
-        btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
             }
         });
 
@@ -340,15 +313,9 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCancelar)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalvar)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -356,11 +323,8 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnPesquisar)
-                    .addComponent(btnAtualizar)
-                    .addComponent(btnExcluir))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCancelar))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -381,7 +345,7 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
         );
 
         pack();
@@ -389,7 +353,6 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
 
     public void fillTheForm(Aluno aluno) {
         btnSalvar.setEnabled(false);
-        btnAtualizar.setEnabled(true);
         txtBairro.setText(aluno.getEndBairro());
         txtCep.setText(aluno.getEndCep());
         txtCidade.setText(aluno.getEndCidade());
@@ -450,50 +413,9 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
         clearFields();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
-        AlunoDAO alunoDAO = new AlunoDAO();
-        alunoDAO.read().stream().forEach((aluno) -> {
-            System.out.println("Nome do Aluno: " + aluno.getDataNascimento());
-        });
-    }//GEN-LAST:event_btnPesquisarActionPerformed
-
-    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
-        Aluno aluno = new Aluno(
-                txtCpf.getText(),
-                txtNome.getText(),
-                txtEmail.getText(),
-                txtDataNasc.getText(),
-                txtRua.getText(),
-                Integer.parseInt(txtNumero.getText()),
-                txtBairro.getText(),
-                txtCidade.getText(),
-                (String) cbEstado.getSelectedItem(),
-                Integer.parseInt(txtDdd.getText()),
-                txtTelefone.getText(),
-                (String) cbSexo.getSelectedItem(),
-                txtCep.getText()
-        );
-        AlunoDAO alunoDAO = new AlunoDAO();
-        alunoDAO.update(aluno);
-        dispose();
-    }//GEN-LAST:event_btnAtualizarActionPerformed
-
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
-        Aluno aluno = new Aluno();
-        aluno.setCpf(txtCpf.getText());
-        AlunoDAO alunoDAO = new AlunoDAO();
-        alunoDAO.delete(aluno);
-    }//GEN-LAST:event_btnExcluirActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JComboBox<String> cbSexo;
