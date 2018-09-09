@@ -204,15 +204,14 @@ public class AlunoDAO {
         return listaAluno;
     }
 
-    public void deleteAlunoTurma(Aluno aluno, Turma turma) {
+    public void deleteAlunoTurmas(Aluno aluno) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("CALL P_Delete_Aluno_Turma(?, ?)");
+            stmt = con.prepareStatement("CALL P_Delete_Aluno_Turmas(?)");
 
             stmt.setString(1, aluno.getCpf());
-            stmt.setInt(2, turma.getCod());
 
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cadastro excluido com sucesso!");
@@ -223,7 +222,7 @@ public class AlunoDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
     }
-
+    
     public List<Aluno> readAluno(Aluno aluno) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;

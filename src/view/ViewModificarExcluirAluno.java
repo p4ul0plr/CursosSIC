@@ -241,6 +241,18 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) tblAlunos.getModel();
             int row = tblAlunos.getSelectedRow();
             AlunoDAO alunoDAO = new AlunoDAO();
+            TurmaDAO turmaDAO = new TurmaDAO();
+            Aluno aluno = new Aluno();
+            aluno = listAluno.get(row);
+            aluno.setTurmasMatriculadas(turmaDAO.readTurmasAluno(aluno));
+            System.out.println("" + aluno.getTurmasMatriculadas().get(0).getNome());
+            if (aluno.getTurmasMatriculadas().isEmpty()) {
+                alunoDAO.delete(aluno);
+                model.removeRow(row);
+            } else {
+                alunoDAO.deleteAlunoTurmas(aluno);
+                model.removeRow(row);
+            }
 
 //            if (cmbTurmas.getSelectedItem().toString().equals("Todos os Alunos"))
 //                alunoDAO.delete(listAluno.get(row));
@@ -248,7 +260,6 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
 //                Turma turma = new Turma();
 //                turma = (Turma) cmbTurmas.getSelectedItem();
 //                alunoDAO.deleteAlunoTurma(listAluno.get(row), turma);
-            model.removeRow(row);
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um Aluno para excluir!");
         }
