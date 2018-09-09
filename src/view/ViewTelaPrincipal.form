@@ -151,6 +151,26 @@
             </Menu>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuMatricula">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Matr&#xed;cula"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuEfetuar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Efetuar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuEfetuarActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuCancelar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Calcelar"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sobre"/>
@@ -189,12 +209,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="dskTeleInicial" alignment="0" pref="718" max="32767" attributes="0"/>
+          <Component id="dskTeleInicial" alignment="0" pref="800" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="dskTeleInicial" alignment="0" pref="468" max="32767" attributes="0"/>
+          <Component id="dskTeleInicial" alignment="0" pref="583" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

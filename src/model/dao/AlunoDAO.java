@@ -175,7 +175,7 @@ public class AlunoDAO {
                     + "ON T_Aluno.pk_cpf_aluno = R_Aluno_Turma.pk_fk_cpf_aluno "
                     + "WHERE R_Aluno_Turma.pk_fk_cod_turma = ?");
             stmt.setInt(1, turma.getCod());
-            
+
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -204,4 +204,81 @@ public class AlunoDAO {
         return listaAluno;
     }
 
+    public void deleteAlunoTurma(Aluno aluno, Turma turma) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("CALL P_Delete_Aluno_Turma(?, ?)");
+
+            stmt.setString(1, aluno.getCpf());
+            stmt.setInt(2, turma.getCod());
+
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cadastro excluido com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir cadastro!");
+            throw new RuntimeException("Erro ao excluir cadastro no Banco de Dados: ", ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+
+    public List<Aluno> readAluno(Aluno aluno) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Aluno> listaAluno = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM T_Aluno WHERE pk_cpf_aluno = ?");
+            stmt.setString(1, aluno.getCpf());
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Aluno alunoresult = new Aluno(
+                        rs.getString("pk_cpf_aluno"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        rs.getString("data_nascimento"),
+                        rs.getString("end_rua"),
+                        rs.getInt("end_numero"),
+                        rs.getString("end_bairro"),
+                        rs.getString("end_cidade"),
+                        rs.getString("end_estado"),
+                        rs.getInt("ddd"),
+                        rs.getString("numero"),
+                        rs.getString("sexo"),
+                        rs.getString("end_cep")
+                );
+                listaAluno.add(alunoresult);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao ler cadastro!");
+            throw new RuntimeException("Erro ao ler no Banco de Dados: ", ex);
+        }
+
+        return listaAluno;
+    }
+    
+        public void createAlunoTurma(Aluno aluno, Turma turma, String dataMatricula) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("INSERT INTO R_Aluno_Turma VALUES(?, ?, CONVERT(?, DATE))");
+
+            stmt.setString(1, aluno.getCpf());
+            stmt.setInt(2, turma.getCod());
+            stmt.setString(3, dataMatricula);
+
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Aluno Matriculado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Matricular Aluno!");
+            throw new RuntimeException("Erro ao inserir no Banco de Dados: ", ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
 }

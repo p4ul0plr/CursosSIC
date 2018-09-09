@@ -241,7 +241,13 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) tblAlunos.getModel();
             int row = tblAlunos.getSelectedRow();
             AlunoDAO alunoDAO = new AlunoDAO();
-            alunoDAO.delete(listAluno.get(row));
+
+//            if (cmbTurmas.getSelectedItem().toString().equals("Todos os Alunos"))
+//                alunoDAO.delete(listAluno.get(row));
+//
+//                Turma turma = new Turma();
+//                turma = (Turma) cmbTurmas.getSelectedItem();
+//                alunoDAO.deleteAlunoTurma(listAluno.get(row), turma);
             model.removeRow(row);
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um Aluno para excluir!");

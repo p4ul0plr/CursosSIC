@@ -51,6 +51,9 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuMatricula = new javax.swing.JMenu();
+        jMenuEfetuar = new javax.swing.JMenuItem();
+        jMenuCancelar = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -167,6 +170,21 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenuMatricula.setText("Matrícula");
+
+        jMenuEfetuar.setText("Efetuar");
+        jMenuEfetuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuEfetuarActionPerformed(evt);
+            }
+        });
+        jMenuMatricula.add(jMenuEfetuar);
+
+        jMenuCancelar.setText("Calcelar");
+        jMenuMatricula.add(jMenuCancelar);
+
+        jMenuBar1.add(jMenuMatricula);
+
         jMenu4.setText("Sobre");
         jMenuBar1.add(jMenu4);
 
@@ -176,11 +194,11 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dskTeleInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+            .addComponent(dskTeleInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dskTeleInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(dskTeleInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
         );
 
         pack();
@@ -243,6 +261,14 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         formExcluirAluno.setButons("formExcluirAluno");
     }//GEN-LAST:event_jMenuRemoverAlunoActionPerformed
 
+    private void jMenuEfetuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEfetuarActionPerformed
+        // TODO add your handling code here:
+        ViewMaticularAluno formMatriculaAluno = new ViewMaticularAluno();
+        dskTeleInicial.add(formMatriculaAluno);
+        formMatriculaAluno.setVisible(true);
+        formMatriculaAluno.setPosition();
+    }//GEN-LAST:event_jMenuEfetuarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,8 +317,11 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuAdicionarTurma;
     private javax.swing.JMenu jMenuAluno;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuCancelar;
     private javax.swing.JMenu jMenuCurso;
+    private javax.swing.JMenuItem jMenuEfetuar;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenu jMenuMatricula;
     private javax.swing.JMenuItem jMenuModificarAluno;
     private javax.swing.JMenuItem jMenuModificarCurso;
     private javax.swing.JMenuItem jMenuModificarProfessor;
