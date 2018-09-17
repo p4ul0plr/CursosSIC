@@ -61,8 +61,10 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/folder_wrench.png"))); // NOI18N
         jMenu1.setText("Arquivo");
 
+        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/door_out.png"))); // NOI18N
         jMenuSair.setText("Sair");
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,10 +75,13 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/group.png"))); // NOI18N
         jMenu2.setText("Cadastros");
 
+        jMenuAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/user.png"))); // NOI18N
         jMenuAluno.setText("Alunos");
 
+        jMenuAdicionarAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/user_add.png"))); // NOI18N
         jMenuAdicionarAluno.setText("Adicionar");
         jMenuAdicionarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +90,7 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         });
         jMenuAluno.add(jMenuAdicionarAluno);
 
+        jMenuModificarAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/user_edit.png"))); // NOI18N
         jMenuModificarAluno.setText("Modificar");
         jMenuModificarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +99,7 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         });
         jMenuAluno.add(jMenuModificarAluno);
 
+        jMenuRemoverAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/user_delete.png"))); // NOI18N
         jMenuRemoverAluno.setText("Remover");
         jMenuRemoverAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,8 +110,10 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenu2.add(jMenuAluno);
 
+        jMenuProfessor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/user_suit.png"))); // NOI18N
         jMenuProfessor.setText("Professores");
 
+        jMenuAdicionarProfessor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/application_add.png"))); // NOI18N
         jMenuAdicionarProfessor.setText("Adicionar");
         jMenuAdicionarProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,16 +122,20 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         });
         jMenuProfessor.add(jMenuAdicionarProfessor);
 
+        jMenuModificarProfessor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/application_edit.png"))); // NOI18N
         jMenuModificarProfessor.setText("Modificar");
         jMenuProfessor.add(jMenuModificarProfessor);
 
+        jMenuRemoverProfessor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/application_delete.png"))); // NOI18N
         jMenuRemoverProfessor.setText("Remover");
         jMenuProfessor.add(jMenuRemoverProfessor);
 
         jMenu2.add(jMenuProfessor);
 
+        jMenuCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/report.png"))); // NOI18N
         jMenuCurso.setText("Cursos");
 
+        jMenuAdicionarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/report_add.png"))); // NOI18N
         jMenuAdicionarCurso.setText("Adicionar");
         jMenuAdicionarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,16 +144,20 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         });
         jMenuCurso.add(jMenuAdicionarCurso);
 
+        jMenuModificarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/report_edit.png"))); // NOI18N
         jMenuModificarCurso.setText("Modificar");
         jMenuCurso.add(jMenuModificarCurso);
 
+        jMenuRemoverCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/report_delete.png"))); // NOI18N
         jMenuRemoverCurso.setText("Remover");
         jMenuCurso.add(jMenuRemoverCurso);
 
         jMenu2.add(jMenuCurso);
 
+        jMenuTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/group.png"))); // NOI18N
         jMenuTurma.setText("Turma");
 
+        jMenuAdicionarTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/group_add.png"))); // NOI18N
         jMenuAdicionarTurma.setText("Adicionar");
         jMenuAdicionarTurma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,9 +166,11 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         });
         jMenuTurma.add(jMenuAdicionarTurma);
 
+        jMenuModificarTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/group_edit.png"))); // NOI18N
         jMenuModificarTurma.setText("Modificar");
         jMenuTurma.add(jMenuModificarTurma);
 
+        jMenuRemoverTurma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/group_delete.png"))); // NOI18N
         jMenuRemoverTurma.setText("Remover");
         jMenuTurma.add(jMenuRemoverTurma);
 
@@ -159,10 +178,13 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/wrench.png"))); // NOI18N
         jMenu3.setText("Ferramentas");
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/magnifier.png"))); // NOI18N
         jMenu5.setText("Pesquisas");
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/magnifier_zoom_in.png"))); // NOI18N
         jMenuItem6.setText("Pesquisas");
         jMenu5.add(jMenuItem6);
 
@@ -170,8 +192,10 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenuMatricula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/user_go.png"))); // NOI18N
         jMenuMatricula.setText("Matrícula");
 
+        jMenuEfetuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/add.png"))); // NOI18N
         jMenuEfetuar.setText("Efetuar");
         jMenuEfetuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,11 +204,13 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         });
         jMenuMatricula.add(jMenuEfetuar);
 
+        jMenuCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/cancel.png"))); // NOI18N
         jMenuCancelar.setText("Calcelar");
         jMenuMatricula.add(jMenuCancelar);
 
         jMenuBar1.add(jMenuMatricula);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/comments.png"))); // NOI18N
         jMenu4.setText("Sobre");
         jMenuBar1.add(jMenu4);
 
@@ -209,6 +235,7 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewFormularioAluno formAluno = new ViewFormularioAluno();
         dskTeleInicial.add(formAluno);
+        formAluno.setButons("formCadastrarAluno");
         formAluno.setVisible(true);
         formAluno.setPosition();
     }//GEN-LAST:event_jMenuAdicionarAlunoActionPerformed

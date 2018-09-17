@@ -187,7 +187,6 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
         } else if (option.equals("formModificaAluno")) {
             btnRemover.setEnabled(false);
         }
-
     }
 
     private void cmbTurmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTurmasActionPerformed
@@ -231,6 +230,7 @@ public class ViewModificarExcluirAluno extends javax.swing.JInternalFrame {
         if (tblAlunos.getSelectedRow() != -1) {
             DefaultTableModel model = (DefaultTableModel) tblAlunos.getModel();
             ViewFormularioAluno formAluno = new ViewFormularioAluno();
+            formAluno.setButons("formModificarAluno");
             formAluno.fillTheForm(listAluno.get(tblAlunos.getSelectedRow()));
             ViewTelaPrincipal.dskTeleInicial.add(formAluno);
             formAluno.setVisible(true);

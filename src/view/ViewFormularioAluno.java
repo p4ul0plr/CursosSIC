@@ -62,6 +62,7 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Formulário de Inscrição de Alunos");
@@ -307,12 +308,21 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -323,8 +333,9 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnAtualizar))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,7 +356,7 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
         );
 
         pack();
@@ -413,8 +424,40 @@ public class ViewFormularioAluno extends javax.swing.JInternalFrame {
         clearFields();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        // TODO add your handling code here:
+        Aluno aluno = new Aluno(
+            txtCpf.getText(),
+            txtNome.getText(),
+            txtEmail.getText(),
+            txtDataNasc.getText(),
+            txtRua.getText(),
+            Integer.parseInt(txtNumero.getText()),
+            txtBairro.getText(),
+            txtCidade.getText(),
+            (String) cbEstado.getSelectedItem(),
+            Integer.parseInt(txtDdd.getText()),
+            txtTelefone.getText(),
+            (String) cbSexo.getSelectedItem(),
+            txtCep.getText()
+        );
+        AlunoDAO alunoDAO = new AlunoDAO();
+        alunoDAO.update(aluno);
+        clearFields();
+        dispose();
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
+    public void setButons(String option) {
+        if (option.equals("formCadastrarAluno")) {
+            btnAtualizar.setEnabled(false);
+        } else if (option.equals("formModificaAluno")) {
+            btnAtualizar.setEnabled(true);
+            btnAtualizar.setEnabled(false);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbEstado;
