@@ -124,6 +124,11 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenuModificarProfessor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/application_edit.png"))); // NOI18N
         jMenuModificarProfessor.setText("Modificar");
+        jMenuModificarProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuModificarProfessorActionPerformed(evt);
+            }
+        });
         jMenuProfessor.add(jMenuModificarProfessor);
 
         jMenuRemoverProfessor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/application_delete.png"))); // NOI18N
@@ -146,6 +151,11 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenuModificarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/report_edit.png"))); // NOI18N
         jMenuModificarCurso.setText("Modificar");
+        jMenuModificarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuModificarCursoActionPerformed(evt);
+            }
+        });
         jMenuCurso.add(jMenuModificarCurso);
 
         jMenuRemoverCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/report_delete.png"))); // NOI18N
@@ -206,6 +216,11 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
 
         jMenuCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/icons/cancel.png"))); // NOI18N
         jMenuCancelar.setText("Calcelar");
+        jMenuCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCancelarActionPerformed(evt);
+            }
+        });
         jMenuMatricula.add(jMenuCancelar);
 
         jMenuBar1.add(jMenuMatricula);
@@ -295,6 +310,18 @@ public class ViewTelaPrincipal extends javax.swing.JFrame {
         formMatriculaAluno.setVisible(true);
         formMatriculaAluno.setPosition();
     }//GEN-LAST:event_jMenuEfetuarActionPerformed
+
+    private void jMenuModificarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarProfessorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuModificarProfessorActionPerformed
+
+    private void jMenuCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuCancelarActionPerformed
+
+    private void jMenuModificarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuModificarCursoActionPerformed
 
     /**
      * @param args the command line arguments
